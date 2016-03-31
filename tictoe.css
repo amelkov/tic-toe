@@ -1,0 +1,9 @@
+.container {
+	width: 66px;	height: 66px;
+}
+.cell {
+	float: left;
+	border: 1px solid black;
+	width: 20px;	height: 20px;
+	text-align:  center;
+}

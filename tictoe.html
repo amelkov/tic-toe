@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="tictoe.css">
+</head>
+
+<body>
+
+<script>
+var sqr = [];
+sqr.length = 9;
+var count = 0;
+
+var container = document.createElement("div");
+container.className = 'container';
+container.id = 'container';
+document.body.appendChild(container);
+
+for(i=1;i<=9;i++){
+	(function (i) {
+		var cell = document.createElement("div");
+		cell.className = 'cell';
+		cell.id = 'cell'+i;
+		document.getElementById("container").appendChild(cell);
+		cell.addEventListener('click', function(){clickCell(i)});
+	}(i));
+}
+
+
+
+function clickCell(j){
+	if(sqr[j] == null){
+		sqr[j] = (count % 2 == 0)?'X':'O';
+		document.getElementById("cell"+j).innerHTML = sqr[j] || '';
+		count++;
+		check();
+	}
+}
+
+function check(){
+
+	if((sqr[1] == sqr[2] && sqr[1] == sqr[3] && sqr[1] != null) || 
+	   (sqr[4] == sqr[5] && sqr[4] == sqr[6] && sqr[4] != null) ||
+	   (sqr[7] == sqr[8] && sqr[7] == sqr[9] && sqr[7] != null) ||
+	   (sqr[1] == sqr[4] && sqr[1] == sqr[7] && sqr[1] != null) ||
+	   (sqr[2] == sqr[5] && sqr[2] == sqr[8] && sqr[2] != null) ||
+	   (sqr[3] == sqr[6] && sqr[3] == sqr[9] && sqr[3] != null) ||
+	   (sqr[1] == sqr[5] && sqr[1] == sqr[9] && sqr[1] != null) ||
+	   (sqr[3] == sqr[5] && sqr[3] == sqr[7] && sqr[3] != null)){
+		alert("Winer is "+((count % 2 == 1)?'X':'O'));
+		reset();
+	}
+	drawCheck();
+}
+
+function drawCheck(){
+  if(count == 9){
+    alert("Draw") ;
+	reset();
+  }
+}
+
+function reset(){
+  for(i=1;i<=9;i++){
+	sqr[i] = null;
+	document.getElementById("cell"+i).innerHTML = '';
+  }
+  count = 0;
+}
+
+</script>
+
+</body>
+
+</html>
