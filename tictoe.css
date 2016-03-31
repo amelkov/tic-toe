@@ -1,9 +1,15 @@
-.container {
-	width: 66px;	height: 66px;
+﻿.container {
+	width: 200px;	height: 200px;
 }
 .cell {
 	float: left;
-	border: 1px solid black;
-	width: 20px;	height: 20px;
+	outline: 1px solid black;
+	width: 33%;	height: 33%;
+	display: table;
+}
+.text {
+	display: table-cell;
+	vertical-align: middle;
 	text-align:  center;
+	font-size: 200%;
 }

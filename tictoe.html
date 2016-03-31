@@ -29,11 +29,10 @@ for(i=1;i<=9;i++){
 }
 
 
-
 function clickCell(j){
 	if(sqr[j] == null){
 		sqr[j] = (count % 2 == 0)?'X':'O';
-		document.getElementById("cell"+j).innerHTML = sqr[j] || '';
+		document.getElementById("cell"+j).innerHTML = "<p class = 'text'>"+sqr[j]+"</p>" || '';
 		count++;
 		check();
 	}
@@ -49,7 +48,7 @@ function check(){
 	   (sqr[3] == sqr[6] && sqr[3] == sqr[9] && sqr[3] != null) ||
 	   (sqr[1] == sqr[5] && sqr[1] == sqr[9] && sqr[1] != null) ||
 	   (sqr[3] == sqr[5] && sqr[3] == sqr[7] && sqr[3] != null)){
-		alert("Winer is "+((count % 2 == 1)?'X':'O'));
+		alert("Winner is "+((count % 2 == 1)?'X':'O'));
 		reset();
 	}
 	drawCheck();
