@@ -44,7 +44,7 @@ for(i=1;i<=9;i++){
 	}(i));
 }
 
-
+// Place X or O in cell j 
 function clickCell(j){
 	if(sqr[j] == null){
 		sqr[j] = (count % 2 == 0)?'X':'O';
@@ -57,6 +57,7 @@ function clickCell(j){
 	}
 }
 
+// If it's turn for O, then choose cell and make move
 function computerMove(){
 	if(count % 2 == 1){
 		var move = calculateMove();
@@ -64,6 +65,7 @@ function computerMove(){
 	}
 }
 
+// Choosing cell to make move
 function calculateMove(){
 	var move;
 	if((sqr[2] == sqr[3] && sqr[2] != null && sqr[1] == null) ||
@@ -74,31 +76,31 @@ function calculateMove(){
 			 (sqr[5] == sqr[8] && sqr[5] != null && sqr[2] == null)){
 				move = 2;
 	}else if((sqr[1] == sqr[2] && sqr[1] != null && sqr[3] == null) ||
-			 (sqr[5] == sqr[7] && sqr[5] != null && sqr[3] == null) ||
-			 (sqr[6] == sqr[9] && sqr[6] != null && sqr[3] == null)){
-				move = 3;
+	         (sqr[5] == sqr[7] && sqr[5] != null && sqr[3] == null) ||
+	         (sqr[6] == sqr[9] && sqr[6] != null && sqr[3] == null)){
+	        	move = 3;
 	}else if((sqr[5] == sqr[6] && sqr[5] != null && sqr[4] == null) ||
-			 (sqr[1] == sqr[7] && sqr[1] != null && sqr[4] == null)){
-				move = 4;
+	         (sqr[1] == sqr[7] && sqr[1] != null && sqr[4] == null)){
+	        	move = 4;
 	}else if((sqr[4] == sqr[6] && sqr[4] != null && sqr[5] == null) ||
-			 (sqr[1] == sqr[9] && sqr[1] != null && sqr[5] == null) ||
-			 (sqr[3] == sqr[7] && sqr[3] != null && sqr[5] == null) ||
-			 (sqr[2] == sqr[8] && sqr[2] != null && sqr[5] == null)){
-				move = 5;
+	         (sqr[1] == sqr[9] && sqr[1] != null && sqr[5] == null) ||
+	         (sqr[3] == sqr[7] && sqr[3] != null && sqr[5] == null) ||
+	         (sqr[2] == sqr[8] && sqr[2] != null && sqr[5] == null)){
+	        	move = 5;
 	}else if((sqr[4] == sqr[5] && sqr[4] != null && sqr[6] == null) ||
-			 (sqr[3] == sqr[9] && sqr[3] != null && sqr[6] == null)){
-				move = 6;
+	         (sqr[3] == sqr[9] && sqr[3] != null && sqr[6] == null)){
+	        	move = 6;
 	}else if((sqr[8] == sqr[9] && sqr[8] != null && sqr[7] == null) ||
-			 (sqr[3] == sqr[5] && sqr[3] != null && sqr[7] == null) ||
-			 (sqr[1] == sqr[4] && sqr[1] != null && sqr[7] == null)){
-				move = 7;
+	         (sqr[3] == sqr[5] && sqr[3] != null && sqr[7] == null) ||
+	         (sqr[1] == sqr[4] && sqr[1] != null && sqr[7] == null)){
+	        	move = 7;
 	}else if((sqr[7] == sqr[9] && sqr[7] != null && sqr[8] == null) ||
-			 (sqr[2] == sqr[5] && sqr[2] != null && sqr[8] == null)){
-				move = 8;
+	         (sqr[2] == sqr[5] && sqr[2] != null && sqr[8] == null)){
+	        	move = 8;
 	}else if((sqr[7] == sqr[8] && sqr[7] != null && sqr[9] == null) ||
-			 (sqr[1] == sqr[5] && sqr[1] != null && sqr[9] == null) ||
-			 (sqr[3] == sqr[6] && sqr[3] != null && sqr[9] == null)){
-				move = 9;
+	         (sqr[1] == sqr[5] && sqr[1] != null && sqr[9] == null) ||
+	         (sqr[3] == sqr[6] && sqr[3] != null && sqr[9] == null)){
+	        	move = 9;
 	}else if(sqr[5] == null){
 		move = 5;
 	}else if(sqr[1] == null){
@@ -121,6 +123,7 @@ function calculateMove(){
 	return move;
 }
 
+// Checking the winner and reset game if it is.
 function check(){
 
 	if((sqr[1] == sqr[2] && sqr[1] == sqr[3] && sqr[1] != null) || 
@@ -137,6 +140,7 @@ function check(){
 	drawCheck();
 }
 
+// Checking draw in the game
 function drawCheck(){
   if(count == 9){
     alert("Draw") ;
@@ -144,6 +148,7 @@ function drawCheck(){
   }
 }
 
+// Reset the game
 function reset(){
   for(i=1;i<=9;i++){
 	sqr[i] = null;
